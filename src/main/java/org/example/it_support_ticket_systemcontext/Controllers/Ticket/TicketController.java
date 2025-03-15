@@ -1,11 +1,12 @@
 package org.example.it_support_ticket_systemcontext.Controllers;
 
-import org.example.it_support_ticket_systemcontext.Models.Ticket;
+import org.example.it_support_ticket_systemcontext.Models.Ticket.Ticket;
 import org.example.it_support_ticket_systemcontext.Services.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/tickets")
@@ -15,6 +16,7 @@ public class TicketController {
 
     @PostMapping
     public Ticket createTicket(@RequestBody Ticket ticket) {
+
         return ticketService.createTicket(ticket);
     }
 
@@ -27,9 +29,14 @@ public class TicketController {
             return ticketService.searchTickets(search);
         }
         return ticketService.getAllTickets();
+
     }
+
+
     @PutMapping("/{ticketId}/status")
-    public Ticket updateTicketStatus(@PathVariable("ticketId") Long ticketId, @RequestBody String status) {
+    public Ticket updateTicketStatus(@PathVariable("ticketId") Long ticketId,
+                                     @RequestBody Map<String, String> statusMap) {
+        String status = statusMap.get("status");
         return ticketService.updateTicketStatus(ticketId, status);
     }
 
