@@ -2,8 +2,8 @@ package org.example.it_support_ticket_systemcontext.Authentication.Auth;
 
 import lombok.RequiredArgsConstructor;
 import org.example.it_support_ticket_systemcontext.Authentication.Config.JwtService;
-import org.example.it_support_ticket_systemcontext.Models.Employee;
-import org.example.it_support_ticket_systemcontext.Repositories.EmployeeRepository;
+import org.example.it_support_ticket_systemcontext.Models.Employee.Employee;
+import org.example.it_support_ticket_systemcontext.Repositories.Employee.EmployeeRepository;
 import org.example.it_support_ticket_systemcontext.Role.Role;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -50,6 +50,7 @@ public class AuthenticationService {
         return AuthenticationResponse.builder()
                 .token(jwtToken)
                 .firstname(employee.getFirstname())
+                .Role(String.valueOf(employee.getRole()))
                 .build();
     }
 }

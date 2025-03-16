@@ -1,4 +1,4 @@
-package org.example.it_support_ticket_systemcontext.Models;
+package org.example.it_support_ticket_systemcontext.Models.Employee;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -30,6 +30,8 @@ public class Employee implements UserDetails {
 
     @Enumerated(EnumType.STRING)
     private Role role;
+
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

@@ -1,7 +1,7 @@
 package org.example.it_support_ticket_systemcontext.Authentication.Config;
 
 import lombok.RequiredArgsConstructor;
-import org.example.it_support_ticket_systemcontext.Repositories.Employee.EmployeeRepository;
+import org.example.it_support_ticket_systemcontext.Repositories.EmployeeRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;

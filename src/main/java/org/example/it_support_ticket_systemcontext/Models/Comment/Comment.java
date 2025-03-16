@@ -1,7 +1,9 @@
-package org.example.it_support_ticket_systemcontext.Models;
+package org.example.it_support_ticket_systemcontext.Models.Comment;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.example.it_support_ticket_systemcontext.Models.Employee.Employee;
+import org.example.it_support_ticket_systemcontext.Models.Ticket.Ticket;
 
 import java.time.LocalDateTime;
 

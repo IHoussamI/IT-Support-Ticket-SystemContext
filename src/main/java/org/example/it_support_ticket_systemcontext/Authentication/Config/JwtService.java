@@ -1,8 +1,6 @@
 package org.example.it_support_ticket_systemcontext.Authentication.Config;
 
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -28,6 +26,7 @@ public class JwtService {
         return claimsResolver.apply(claims);
     }
 
+
     public String generateToken(UserDetails userDetails) {
         return generateToken(new HashMap<>(), userDetails);
     }
@@ -35,6 +34,7 @@ public class JwtService {
     public String generateToken(
             Map<String, Object> extraClaims,
             UserDetails userDetails
+
     ) {
 
         return Jwts
@@ -67,6 +67,19 @@ public class JwtService {
                 .build()
                 .parseClaimsJws(token)
                 .getBody();
+    }
+
+    public String getRoleFromJwt(String token) {
+        try {
+            Claims claims = extractAllClaims(token);
+            return claims.get("role", String.class);
+        } catch (ExpiredJwtException e) {
+            throw new IllegalStateException("Token is expired", e);
+        } catch (MalformedJwtException e) {
+            throw new IllegalStateException("Token is malformed", e);
+        } catch (Exception e) {
+            throw new IllegalStateException("Failed to extract role from token", e);
+        }
     }
 
     private Key getSignInKey() {

@@ -18,6 +18,7 @@ public class ItSupportTicketSystemContextApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(ItSupportTicketSystemContextApplication.class, args);
+
     }
 
 }

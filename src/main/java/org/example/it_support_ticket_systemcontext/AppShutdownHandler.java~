@@ -1,0 +1,14 @@
+package org.example.it_support_ticket_systemcontext;
+
+import jakarta.annotation.PreDestroy;
+import org.springframework.stereotype.Component;
+
+@Component
+public class AppShutdownHandler {
+
+    @PreDestroy
+    public void onShutdown() {
+        System.out.println("Application is shutting down, cleaning up resources...");
+        // Close resources like data sources if needed
+    }
+}

@@ -1,4 +1,4 @@
-package org.example.it_support_ticket_systemcontext.Repositories;
+package org.example.it_support_ticket_systemcontext.Repositories.Comment;
 
 import org.example.it_support_ticket_systemcontext.Models.Comment.Comment;
 import org.springframework.data.jpa.repository.JpaRepository;

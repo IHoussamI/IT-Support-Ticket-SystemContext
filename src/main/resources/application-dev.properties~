@@ -1,0 +1,8 @@
+# Dev-specific settings
+spring.datasource.url=jdbc:oracle:thin:@localhost:1521:XE
+dev.it-support1.email=it.support1@dev.com
+dev.it-support1.password=password123
+
+# Test-specific settings
+test.it-support1.email=it.support1@test.com
+test.it-support1.password=password123

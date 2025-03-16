@@ -1,9 +1,12 @@
-package org.example.it_support_ticket_systemcontext.Models;
+package org.example.it_support_ticket_systemcontext.Models.Ticket;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.example.it_support_ticket_systemcontext.Models.AuditLog.AuditLog;
+import org.example.it_support_ticket_systemcontext.Models.Employee.Employee;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Data
@@ -15,7 +18,7 @@ public class Ticket {
 
     private String title;
     @Lob
-    @Column(name = "description", columnDefinition = "CLOB", nullable = false)
+    @Column(name = "DESCRIPTION", columnDefinition = "CLOB", nullable = false)
     private String description;
     private String priority;
     private String category;
@@ -23,6 +26,7 @@ public class Ticket {
     private String status = "New";
 
     @ManyToOne
-    @JoinColumn(name = "employee_id")
+    @JoinColumn(name = "EMPLOYEE_ID", nullable = false)
     private Employee employee;
+
 }
